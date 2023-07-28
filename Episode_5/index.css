@@ -1,0 +1,169 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+:root {
+	--bar-w: 30px;
+	--bar-h: 6px;
+	--bar-margin-t: 0.15em;
+
+}
+
+*::selection {
+	background-color: palegreen;
+}
+img {
+	max-width: 100%;
+	border-radius: 5px;
+}
+
+.app {
+	width: 95%;
+	max-width: 1250px;
+	margin: 0 auto;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 2vw;
+	font-family: monospace;
+	font-weight: 500;
+}
+
+.nav-list {
+	display: flex;
+	gap: 2.1em;
+	align-items: center;
+	list-style: none;
+}
+
+.company-logo {
+	width: 70px;
+}
+
+.cart-logo {
+	width: 40px;
+}
+
+.nav-link a {
+	text-decoration: none;
+}
+
+.hamburger {
+	position: absolute;
+	right: 0.5em;
+	top: 1em;
+	display: none;
+}
+
+.bar {
+	background-color: black;
+	width: var(--bar-w);
+	height: var(--bar-h);
+	margin-bottom: var(--bar-margin-t);
+	border-radius: 15px;
+}
+
+.res-container {
+
+    display: flex;
+    flex-wrap: wrap;
+	/* justify-content: space-between; */
+	margin : 0 auto;
+
+}
+
+.card {
+	font-size: calc(1rem + .1vw);
+	cursor: pointer;
+	text-align: center;
+	width: 23%;
+	padding: .2em;
+	margin-bottom: 40px;
+	margin-left: 2%;
+	line-height: 1.3;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+}
+
+.card:hover {
+    padding: .7vw;
+}
+
+.filter {
+	margin: 1em 0;
+	padding: .5em;
+	cursor: pointer;
+}
+
+.Shimmer {
+	width: 22%;
+	height: 200px;
+	background-color: #f0f0f0;
+	margin: 1em;
+}
+
+.Shimmer-parent{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+.Shimmer-button {
+	width: 130px;
+	height: 2rem;
+	background-color: #f0f0f0;
+}
+
+.login-btn{
+	padding: .5em;
+}
+
+.feature-container{
+	display: flex;
+	align-items:center;
+	gap: 1em;
+}
+
+
+span + span {
+	margin-left: 1em;
+}
+
+@media (max-width: 480px) {
+	.card, .header {
+		font-size: calc(1rem - .4vh);
+	}
+
+	.hamburger {
+		display: block;
+	}
+	.nav-list,
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+
+	}
+	.nav-link {
+		text-align: center;
+		width: 100vw;
+	}
+	.logo-container {
+		align-self: flex-start;
+	}
+	.nav-items {
+		margin-top: calc(1em + var(--bar-h) + var(--bar-margin-t) + var(--bar-w));
+		display: none;
+	}
+}
+.active {
+	display: block;
+	margin: 0;
+}

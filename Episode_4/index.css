@@ -1,0 +1,130 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+}
+
+:root {
+	--bar-w: 40px;
+	--bar-h: 10px;
+	--bar-margin-t: 0.2em;
+	
+}
+
+*::selection {
+	background-color: orangered;
+}
+img {
+	max-width: 100%;
+}
+
+.app {
+	width: 95%;
+	max-width: 1250px;
+	margin: 0 auto;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 2vw;
+	font-family: monospace;
+	font-weight: 500;
+	/* flex-basis: 1; */
+}
+
+.nav-list {
+	display: flex;
+	gap: 2.1em;
+	align-items: center;
+	/* flex-basis: 1; */
+	list-style: none;
+}
+
+.company-logo {
+	width: 70px;
+}
+
+.cart-logo {
+	width: 40px;
+}
+
+.nav-link a {
+	text-decoration: none;
+}
+
+.hamburger {
+	position: absolute;
+	right: 0.5em;
+	top: 1em;
+	display: none;
+}
+
+.bar {
+	background-color: black;
+	width: var(--bar-w);
+	height: var(--bar-h);
+	margin-bottom: var(--bar-margin-t);
+	border-radius: 10px;
+}
+
+.res-container {
+    
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: space-between;
+	
+}
+  
+  .card {
+	font-size: 2vw;
+	cursor: pointer;
+	text-align: center;
+	width: 23%; 
+	 padding: .2em;
+	margin-bottom: 40px;
+  }
+  
+ 
+  
+  
+.card:hover {
+    padding: .7vw;
+}
+
+span + span {
+	margin-left: 1em;
+}
+
+@media (max-width: 480px) {
+	.card, .header {
+		font-size: 1.2vh;
+	}
+	
+	.hamburger {
+		display: block;
+	}
+	.nav-list,
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+	.nav-link {
+		text-align: center;
+		width: 100vw;
+	}
+	.logo-container {
+		align-self: flex-start;
+	}
+	.nav-items {
+		margin-top: calc(1em + var(--bar-h) + var(--bar-margin-t) + var(--bar-w));
+		display: none;
+	}
+}
+.active {
+	display: block;
+	margin: 0;
+}
