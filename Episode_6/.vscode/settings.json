@@ -1,0 +1,19 @@
+{
+    "prettier.insertPragma": false,
+    "prettier.bracketSameLine": true,
+    "eslint.format.enable": true,
+    "eslint.probe": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue",
+        "markdown",
+        "json"
+    ],
+    "files.trimTrailingWhitespace": true,
+    "pretty-formatter.bracePadding": false,
+    "pretty-formatter.preserveComment": true,
+    "better-comments.highlightPlainText": true
+}
