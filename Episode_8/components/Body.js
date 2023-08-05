@@ -22,11 +22,11 @@ const Body = () => {
 		console.log(data);
 		url === MOB_URL
 			? (setListOfRestaurants(
-					data?.data?.success?.cards[2]?.gridWidget?.gridElements?.infoWithStyle
+					data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
 						?.restaurants
 			  ),
 			  setfilteredListOfRestaurants(
-					data?.data?.success?.cards[2]?.gridWidget?.gridElements?.infoWithStyle
+					data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
 						?.restaurants
 			  ))
 			: (setListOfRestaurants(
@@ -41,7 +41,7 @@ const Body = () => {
 
 	console.log("filteredListOfRestaurants", filteredListOfRestaurants);
 
-	return filteredListOfRestaurants?.length == 0 ? (
+	return !filteredListOfRestaurants ? (
 		<Shimmer />
 	) : (
 		<>
