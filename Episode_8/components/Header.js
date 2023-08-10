@@ -36,7 +36,7 @@ const Header = () => {
 						onClick={() => {
 							setIsLoggedIn(!isLoggedin);
 						}}>
-						{isLoggedin ? "logOut" : "logIn"}
+						{isLoggedin ? "LOGOUT" : "LOGIN"}
 					</button>
 				</ul>
 			</div>

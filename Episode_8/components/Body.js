@@ -3,12 +3,12 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 import { WEB_URL, MOB_URL } from "../utils/constants";
-
+let cnt = 0 ;
 const Body = () => {
-	const [listOfRestaurants, setListOfRestaurants] = useState([]);
+	const [listOfRestaurants, setListOfRestaurants] = useState(null);
 	const [searchText, setSearchText] = useState("");
 	const [filteredListOfRestaurants, setfilteredListOfRestaurants] = useState(
-		[]
+		null
 	);
 	const url = window.innerWidth <= 480 ? MOB_URL : WEB_URL;
 
@@ -19,22 +19,43 @@ const Body = () => {
 	const fetchData = async () => {
 		const response = await fetch(url);
 		const data = await response.json();
+
+		
 		console.log(data);
+		
+		let i = 0;
+		// if(data) {
+
+			if(url === MOB_URL ) {
+				for(i;i < data?.data?.success?.cards.length;i++) {
+					if(data?.data?.success?.cards[i]?.gridWidget?.gridElements?.infoWithStyle
+						?.restaurants)
+						break;
+				}
+			}
+			else {
+				for(i;i < data?.data?.cards.length;i++) {
+					if(data?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+						?.restaurants)
+						break;
+				}
+			}
+		// }
 		url === MOB_URL
 			? (setListOfRestaurants(
-					data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+					data?.data?.success?.cards[i]?.gridWidget?.gridElements?.infoWithStyle
 						?.restaurants
 			  ),
 			  setfilteredListOfRestaurants(
-					data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+					data?.data?.success?.cards[i]?.gridWidget?.gridElements?.infoWithStyle
 						?.restaurants
 			  ))
 			: (setListOfRestaurants(
-					data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+					data?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
 						?.restaurants
 			  ),
 			  setfilteredListOfRestaurants(
-					data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+					data?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
 						?.restaurants
 			  ));
 	};
